@@ -8,15 +8,29 @@ This repository contains build scripts used to build Cura and all dependencies f
 2. Install latest version of Xcode.
 3. On Mac OS X > 10.10, execute command: *brew link openssl --force*
 4. Because Fortran is necessary: *brew install gcc*
-5. Run these commands:
+5. Clone and build [uframer-cura-build-environment](https://github.com/uframer/uframer-cura-build-environment)
+6. Run these commands:
 ```shell
-git clone git@github.com:Ultimaker/cura-build.git
+git clone https://github.com/uframer/uframer-Cura.git
 cd cura-build
 mkdir build
 cd build
-cmake ..
+# set -DSIGN_PACKAGE=OFF if you cannot/do not want sign you application
+cmake -DCMAKE_PREFIX_PATH=<path/to/install/dir/of/uframer-cura-build-environment> -DSIGN_PACKAGE=OFF ..
 make
 ```
+
+7. If you want to work offline (do not update git repositories before build), please use the following commands:
+
+```shell
+cmake -DCMAKE_PREFIX_PATH=<path/to/install/dir/of/uframer-cura-build-environment> -DSIGN_PACKAGE=OFF -DWORK_OFFLINE=1 ..
+make
+```
+
+8. Because Qt has problems with loading plugins when there are two locations it can load plugins from (see [Issue 118](https://github.com/Ultimaker/cura-build/issues/118)), the Cura.app (located as `build/build/Cura.app`) you built may crash on launch. You can resolve this by either:
+    * Remove your local stuff installed by cura-build-environment-uframer, or
+    * `cd build/inst/bin; PYTHONPATH=../lib/python3.5/site-packages python3 cura_app.py`
+Apparently the first approach is not applicable for developing purpose. So we recommend the second one.
 
 ## Windows
 
