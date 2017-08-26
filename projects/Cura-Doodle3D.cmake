@@ -1,7 +1,7 @@
 
 ExternalProject_Add(Cura-Doodle3D
     GIT_REPOSITORY https://github.com/Doodle3D/Doodle3D-cura-plugin
-    GIT_TAG origin/master
+    GIT_TAG 6db043a0c14393d74dcb25e9e90eab3c15afd5c1
     CMAKE_ARGS -DCMAKE_INSTALL_PREFIX=${EXTERNALPROJECT_INSTALL_PREFIX} -DCMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}
     UPDATE_DISCONNECTED ${WORK_OFFLINE}
 )
