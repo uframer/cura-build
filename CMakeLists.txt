@@ -31,8 +31,8 @@ GetFromEnvironmentOrCache(TAG_OR_BRANCH "uframer-2.5.0" STRING "The name of the 
 GetFromEnvironmentOrCache(EXTRA_REPOSITORIES "" STRING "Extra repositories to install. Expected to have a CMake based build system. Format is (<project name> <git URL> <cmake configuration options>\;)*")
 
 # Create the version-related variables
-GetFromEnvironmentOrCache(CURA_VERSION_MAJOR "0" STRING "Cura Major Version")
-GetFromEnvironmentOrCache(CURA_VERSION_MINOR "0" STRING "Cura Minor Version")
+GetFromEnvironmentOrCache(CURA_VERSION_MAJOR "2" STRING "Cura Major Version")
+GetFromEnvironmentOrCache(CURA_VERSION_MINOR "5" STRING "Cura Minor Version")
 GetFromEnvironmentOrCache(CURA_VERSION_PATCH "0" STRING "Cura Patch Version")
 GetFromEnvironmentOrCache(CURA_VERSION_EXTRA "${TAG_OR_BRANCH}" STRING "Cura Extra Version Information")
 
